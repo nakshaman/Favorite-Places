@@ -8,7 +8,8 @@
 	<string>Take your favorite place image</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Pick your favorite place video</string>
-
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>The location for your favorite place.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>

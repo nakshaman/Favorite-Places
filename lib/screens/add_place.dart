@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:favorite_places/provider/user_places.dart';
 import 'package:favorite_places/widgets/custom_textfield.dart';
 import 'package:favorite_places/widgets/image_input.dart';
+import 'package:favorite_places/widgets/location_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hugeicons/hugeicons.dart';
@@ -14,6 +17,7 @@ class AddPlace extends ConsumerStatefulWidget {
 
 class _AddPlaceState extends ConsumerState<AddPlace> {
   final _titleController = TextEditingController();
+  File? pickedImage;
 
   @override
   void dispose() {
@@ -22,10 +26,15 @@ class _AddPlaceState extends ConsumerState<AddPlace> {
   }
 
   void _savePlace() {
-    if (_titleController.text.isEmpty) {
+    if (_titleController.text.isEmpty || pickedImage == null) {
       return;
     }
-    ref.read(userPlacesProvider.notifier).addPlace(_titleController.text);
+    ref
+        .read(userPlacesProvider.notifier)
+        .addPlace(
+          _titleController.text,
+          pickedImage!,
+        );
     Navigator.of(context).pop();
   }
 
@@ -46,7 +55,15 @@ class _AddPlaceState extends ConsumerState<AddPlace> {
             const SizedBox(
               height: 16,
             ),
-            const ImageInput(),
+            ImageInput(
+              onPickImage: (image) {
+                pickedImage = image;
+              },
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const LocationInput(),
             const SizedBox(
               height: 16,
             ),

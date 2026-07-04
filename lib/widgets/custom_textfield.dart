@@ -22,11 +22,13 @@ class CustomTextfield extends StatelessWidget {
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
           ),
+          borderRadius: BorderRadius.circular(12),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
           ),
+          borderRadius: BorderRadius.circular(12),
         ),
       ),
       style: TextStyle(

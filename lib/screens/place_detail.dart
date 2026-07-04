@@ -9,6 +9,17 @@ class PlaceDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(place.title),
+        centerTitle: true,
+      ),
+      body: Stack(
+        children: [
+          Image.file(
+            place.image,
+            width: double.infinity,
+            fit: BoxFit.cover,
+            height: double.infinity,
+          ),
+        ],
       ),
     );
   }

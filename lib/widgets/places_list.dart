@@ -23,6 +23,10 @@ class PlacesList extends StatelessWidget {
       itemBuilder: (context, index) {
         final item = places[index];
         return ListTile(
+          leading: CircleAvatar(
+            radius: 26,
+            backgroundImage: FileImage(item.image),
+          ),
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
