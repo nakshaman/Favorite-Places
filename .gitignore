@@ -46,3 +46,5 @@ app.*.map.json
 
 
 lib/data/keys.dart
+android/app/src/main/AndroidManifest.xml
+ios/Runner/AppDelegate.swift
