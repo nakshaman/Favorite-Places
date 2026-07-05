@@ -27,6 +27,18 @@ class PlacesList extends StatelessWidget {
             radius: 26,
             backgroundImage: FileImage(item.image),
           ),
+          title: Text(
+            item.title,
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+          ),
+          subtitle: Text(
+            item.location.adress,
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+          ),
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
@@ -36,12 +48,6 @@ class PlacesList extends StatelessWidget {
               ),
             );
           },
-          title: Text(
-            item.title,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-              color: Theme.of(context).colorScheme.onSurface,
-            ),
-          ),
         );
       },
     );

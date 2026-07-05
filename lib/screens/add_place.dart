@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:favorite_places/models/place.dart';
 import 'package:favorite_places/provider/user_places.dart';
 import 'package:favorite_places/widgets/custom_textfield.dart';
 import 'package:favorite_places/widgets/image_input.dart';
@@ -18,6 +19,7 @@ class AddPlace extends ConsumerStatefulWidget {
 class _AddPlaceState extends ConsumerState<AddPlace> {
   final _titleController = TextEditingController();
   File? pickedImage;
+  PlaceLocation? _selectedLocation;
 
   @override
   void dispose() {
@@ -26,15 +28,14 @@ class _AddPlaceState extends ConsumerState<AddPlace> {
   }
 
   void _savePlace() {
-    if (_titleController.text.isEmpty || pickedImage == null) {
+    if (_titleController.text.isEmpty ||
+        pickedImage == null ||
+        _selectedLocation == null) {
       return;
     }
     ref
         .read(userPlacesProvider.notifier)
-        .addPlace(
-          _titleController.text,
-          pickedImage!,
-        );
+        .addPlace(_titleController.text, pickedImage!, _selectedLocation!);
     Navigator.of(context).pop();
   }
 
@@ -42,7 +43,10 @@ class _AddPlaceState extends ConsumerState<AddPlace> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add new place.'),
+        title: const Text(
+          'Add new place',
+        ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(12),
@@ -63,7 +67,11 @@ class _AddPlaceState extends ConsumerState<AddPlace> {
             const SizedBox(
               height: 16,
             ),
-            const LocationInput(),
+            LocationInput(
+              onSelectLocation: (location) {
+                _selectedLocation = location;
+              },
+            ),
             const SizedBox(
               height: 16,
             ),
