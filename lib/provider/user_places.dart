@@ -7,9 +7,6 @@ import 'package:path/path.dart' as path;
 import 'package:sqflite/sqflite.dart' as sql;
 import 'package:sqflite/sqlite_api.dart';
 
-class UserPlacesNotifier extends StateNotifier<List<Place>> {
-  UserPlacesNotifier() : super(const []);
-
   Future<Database> _getDatabase() async {
     final dbPath = await sql.getDatabasesPath();
     final db = await sql.openDatabase(
@@ -23,6 +20,10 @@ class UserPlacesNotifier extends StateNotifier<List<Place>> {
     );
     return db;
   }
+
+class UserPlacesNotifier extends StateNotifier<List<Place>> {
+  UserPlacesNotifier() : super(const []);
+
 
   Future<void> loadPlaces() async {
     final db = await _getDatabase();
