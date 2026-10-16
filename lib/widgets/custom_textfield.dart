@@ -12,6 +12,9 @@ class CustomTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onTapOutside: (PointerDownEvent event) {
+        FocusManager.instance.primaryFocus!.unfocus();
+      },
       cursorColor: Colors.white,
       decoration: InputDecoration(
         label: Text(

@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Pick your favorite place image</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Take your favorite place image</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Pick your favorite place video</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>The location for your favorite place.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -34,6 +26,14 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Take your favorite place image</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>The location for your favorite place.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Pick your favorite place video</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Pick your favorite place image</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
